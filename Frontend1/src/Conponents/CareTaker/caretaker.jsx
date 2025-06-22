@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { LuUsers } from "react-icons/lu";
 import RecentActivity from '../../pages/RecentActivity';
 import OverView from '../../pages/OverView';
-import CalendarView from '../../pages/CalendarView';
+import CalendarView from '../../pages/CalendarView.jsx';
 import Navbar from '../Navbar/navbar';
+import { useUser } from '../../UserContext/userContext.jsx';
 import './index.css'
 
 
@@ -14,6 +16,15 @@ const CareTakerDashboard=()=>{
     const [Streak,setStreak]=useState(5)
     const [missed,setMissed]=useState(3)
     const [taken,setTaken]=useState(4)
+    const navigate=useNavigate()
+    const {isLoggedIn}=useUser();
+    useEffect(() => {
+        if (!isLoggedIn) {
+          navigate('/login');
+        }
+      }, [isLoggedIn, navigate]);
+    
+      if (!isLoggedIn) return null;
 
     return (
         <div className='dashboard'>

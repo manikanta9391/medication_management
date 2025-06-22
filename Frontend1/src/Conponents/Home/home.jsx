@@ -1,14 +1,27 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import { LuUsers } from "react-icons/lu";
+import { useUser } from "../../UserContext/userContext";
 import './home.css';
-const WelcomePage = () => {
-   const navigate=useNavigate()
+
+const Home = () => {
+  const navigate = useNavigate();
+  const { isLoggedIn } = useUser();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+  }, [isLoggedIn, navigate]);
+
+  if (!isLoggedIn) return null;
+
   return (
     <div className="container">
       <div className="header">
-       <FaRegHeart className="icon"/>
+        <FaRegHeart className="icon" />
         <h1>Welcome to MediCare Companion</h1>
         <p className="text-muted">
           Your trusted partner in medication management. Choose your role to get started with personalized features.
@@ -26,7 +39,7 @@ const WelcomePage = () => {
             <li>View your medication calendar</li>
             <li>Large, easy-to-use interface</li>
           </ul>
-          <button className="btn btn-patient" onClick={()=>navigate('/patient')}>Continue as Patient</button>
+          <button className="btn btn-patient" onClick={() => navigate('/patient')}>Continue as Patient</button>
         </div>
 
         <div className="card caretaker">
@@ -39,7 +52,7 @@ const WelcomePage = () => {
             <li>View detailed reports</li>
             <li>Receive email alerts</li>
           </ul>
-          <button className="btn btn-caretaker" onClick={()=>navigate('/caretaker')}>Continue as Caretaker</button>
+          <button className="btn btn-caretaker" onClick={() => navigate('/caretaker')}>Continue as Caretaker</button>
         </div>
       </div>
 
@@ -48,4 +61,4 @@ const WelcomePage = () => {
   );
 };
 
-export default WelcomePage;
+export default Home

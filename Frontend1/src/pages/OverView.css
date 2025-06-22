@@ -1,5 +1,173 @@
-.overview-container{
-    background-color:  #eaf5e9;
-    height: 100%;
-    width: 100%;
+.dashboard-container {
+  width: 100%;
+  height: 90vh;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f1f5f9;
+}
+
+.top-row {
+  display: flex;
+  gap: 20px;
+  flex: none;
+}
+
+.status-card,
+.quick-actions-card {
+  flex: 1;
+  height: 100%; 
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.status-heading {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-entry {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.medication-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.medication-time {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.status-pill {
+  background-color: #ef4444;
+  color: white;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.quick-actions-heading {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.action-button:hover {
+  background-color: #f1f5f9;
+}
+
+.bottom-row {
+  display: flex;
+  flex: none;
+}
+
+.progress-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px; 
+  max-height: 400px;
+}
+
+.progress-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.progress-label {
+  font-size: 15px;
+  color: #334155;
+  margin-bottom: 10px;
+}
+
+.progress-bar-wrapper {
+  height: 10px;
+  background-color: #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #0f172a;
+  transition: width 0.3s ease;
+}
+
+.progress-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.progress-item {
+  text-align: center;
+}
+
+.taken strong {
+  color: green;
+}
+
+.missed strong {
+  color: red;
+}
+
+.remaining strong {
+  color: #3b82f6;
+}
+
+.progress-percent {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-weight: bold;
+  color: #0f172a;
 }
