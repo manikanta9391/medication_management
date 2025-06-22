@@ -1,22 +1,12 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 import { FaRegHeart } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import { LuUsers } from "react-icons/lu";
-import { useUser } from "../../UserContext/userContext";
+import { useNavigate } from "react-router-dom";
 import './home.css';
 
-const Home = () => {
-  const navigate = useNavigate();
-  const { isLoggedIn } = useUser();
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/login');
-    }
-  }, [isLoggedIn, navigate]);
-
-  if (!isLoggedIn) return null;
+const Home = () => { 
+  const navigate=useNavigate()
 
   return (
     <div className="container">
@@ -61,4 +51,4 @@ const Home = () => {
   );
 };
 
-export default Home
+export default Home;

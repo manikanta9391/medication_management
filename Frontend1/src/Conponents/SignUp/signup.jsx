@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
-import './signup.css';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../UserContext/userContext'; 
+import './signup.css';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -11,10 +12,11 @@ const SignUp = () => {
     email: '',
     password: '',
   });
-
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  const { setUserInfo } = useUser(); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,6 +34,13 @@ const SignUp = () => {
     onSuccess: (data) => {
       console.log('Registration successful:', data);
       setError('');
+      setUserInfo({
+        isLoggedIn: true,
+        userid: formData.userid,
+        username: formData.username,
+        email: formData.email,
+      });
+
       navigate('/');
     },
     onError: (err) => {
@@ -55,59 +64,24 @@ const SignUp = () => {
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="userid">User ID</label>
-            <input
-              type="text"
-              name="userid"
-              placeholder="Enter User ID"
-              value={formData.userid}
-              onChange={handleChange}
-              required
-            />
+            <label>User ID</label>
+            <input type="text" name="userid" value={formData.userid} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label htmlFor="username">User Name</label>
-            <input
-              type="text"
-              name="username"
-              placeholder="Enter User Name"
-              value={formData.username}
-              onChange={handleChange}
-              required
-            />
+            <label>User Name</label>
+            <input type="text" name="username" value={formData.username} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+            <label>Email</label>
+            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
+            <label>Password</label>
+            <input type="password" name="password" value={formData.password} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
           </div>
           <p className="error-text">{error}</p>
           <button className="signup-btn" type="submit">Sign Up</button>

@@ -1,6 +1,4 @@
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { useUser } from "../../UserContext/userContext";
+
 import { FiUser } from "react-icons/fi";
 import Navbar from "../Navbar/navbar";
 import { FaRegClock, FaRegImage } from 'react-icons/fa';
@@ -9,15 +7,7 @@ import CalendarView from "../../pages/CalendarView";
 import './index.css';
 
 const PatientPage = () => {
-     const navigate=useNavigate()
-     const {isLoggedIn}=useUser()
-    useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/login');
-    }
-  }, [isLoggedIn, navigate]);
-
-  if (!isLoggedIn) return null;
+   
 
   return (
     <div className='patient-wrapper'>

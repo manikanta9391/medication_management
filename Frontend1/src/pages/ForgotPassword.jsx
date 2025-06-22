@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import './forgotpassword.css';
 import { useNavigate } from 'react-router-dom'; 
+import { useUser } from '../UserContext/userContext';
 
 const ForgotPassword = () => {
   const [formdata, setFormdata] = useState({
@@ -12,7 +13,15 @@ const ForgotPassword = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+
+  const { isLoggedIn } = useUser(); 
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  }, [isLoggedIn, navigate]);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -27,12 +36,10 @@ const ForgotPassword = () => {
       const response = await axios.patch('http://localhost:3000/authentication', data);
       return response.data;
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       setSuccess('Password updated successfully!');
       setError('');
-      setTimeout(() => {
-        navigate('/'); 
-      }, 1000);
+      setTimeout(() => navigate('/login'), 1000);
     },
     onError: (err) => {
       const msg = err.response?.data?.message || 'Failed to reset password';

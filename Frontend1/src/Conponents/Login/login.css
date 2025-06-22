@@ -32,7 +32,11 @@
   font-size: 13px;
   font-weight: bold;
 }
-
+.link-move{
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
 
 
 

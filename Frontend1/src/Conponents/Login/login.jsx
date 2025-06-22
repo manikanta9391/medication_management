@@ -1,7 +1,7 @@
-import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
 import { useUser } from '../../UserContext/userContext';
 import './login.css';
 
@@ -9,7 +9,7 @@ const Login = () => {
   const [formdata, setFormdata] = useState({ userid: '', password: '' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const { login } = useUser(); 
+  const { login } = useUser();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -26,10 +26,11 @@ const Login = () => {
     },
     onSuccess: (data) => {
       console.log('Login successful:', data);
-      login({                    
-        username: data.name,     
+      login({
+        username: data.username,
         email: data.email,
-        userId: data.userid
+        userid: data.userid,
+        isLoggedIn: true
       });
       setError('');
       navigate('/');
@@ -58,24 +59,34 @@ const Login = () => {
               placeholder="Enter User ID"
               value={formdata.userid}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
-              type="text"
+              type="password"
               id="password"
               placeholder="Enter Password"
               value={formdata.password}
               onChange={handleChange}
+              required
             />
           </div>
-          <a className="forgot-link">
+
+          <div className="forgot-password-link">
             <Link to="/forgot-password">Forgot Password?</Link>
-          </a>
+          </div>
+
           <p className="error-text">{error}</p>
           <button className="login-btn" type="submit">Login</button>
         </form>
+
+        <div className="signup-link">
+          <p>
+            Don't have an account? <Link to="/signup">Sign Up</Link>
+          </p>
+        </div>
       </div>
     </div>
   );
