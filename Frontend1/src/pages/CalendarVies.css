@@ -1,0 +1,99 @@
+calendar-container{
+    height: 100%;
+    width: 100%;
+}
+.medication-calendar{
+    display: flex;
+    flex-direction: column;
+    
+}
+.medication{
+    font-size: 25px;
+    font-weight: 550;
+}
+.month-container{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 30px;
+    margin-left: 30px;
+    align-items: center;
+    text-align: center;
+}
+.month-container>button{
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(124, 126, 124);
+    text-align: center;
+}
+.month{
+    font-size: 15px;
+    font-weight: 550;
+    width: 140px;
+}
+.numbers-container{
+   margin-left: 40px;   
+}
+table{
+    margin-top: 10px;
+    height: 30%;
+}
+.th-container{
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 19px;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgb(134, 134, 134);
+    text-align: center;
+    align-items: center;
+}
+tr{
+    width: 20px;
+    text-align: center;
+}
+tb{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 280px;
+    gap: 15px;
+    margin-top: 10px;
+}
+.fixed{
+    height: 20px;
+    width: 25px;
+    text-align: center;
+    background-color: white;
+    border: none;
+}
+sup{
+    border-radius: 50%;
+    background-color: red;
+    padding: 1px 5px;
+    margin-bottom: 20px;
+}
+.lists-displeyed{
+    margin-top: 10%;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+.icon-go{
+    color:green;
+    background-color:green;
+    border-radius: 50%;
+}
+.icon-red{
+    color:rgb(252, 126, 138);
+    background-color:rgb(252, 126, 138);
+    border-radius: 50%;
+}
+.icon-blue{
+    color:blue;
+    background-color:blue;
+    border-radius: 50%;
+}

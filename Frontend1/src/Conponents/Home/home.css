@@ -1,0 +1,124 @@
+body {
+  background-color: #eaf5e9;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  text-align: center;
+  padding: 40px 10px;
+}
+
+.header {
+  margin-bottom: 20px;
+  width: 70%;
+  margin-left: 15%;
+}
+
+.icon {
+  color:white;
+  font-size: 35px;
+  padding: 20px;
+  background: linear-gradient(135deg, #1389eb, #0c9c37);
+  border-radius: 15px;
+  font-weight: 800;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card svg {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.card.patient svg {
+  color: #2790f2;
+}
+
+.card.caretaker svg {
+  color: #22b558;
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+.caretaker>h3{
+  color: #0c9c37;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.patient>h3{
+  color: #1389eb;
+}
+
+.card ul li {
+  margin-bottom: 10px;
+
+}
+
+.card.patient ul li::before {
+  content: "•";
+  color: #2790f2;
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+.card.caretaker ul li::before {
+  content: "•";
+  color: #22b558;
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-patient {
+  background-color: #2790f2;
+}
+
+.btn-caretaker {
+  background-color: #22b558;
+}
+
+.note {
+  margin-top: 8px;
+  color: #666;
+  margin-top: 40px;
+}
+.text-muted{
+  color: #666;
+  font-size: 18px;
+  width: 70%;
+  padding-left: 15%;
+  text-align: center;
+}
+
